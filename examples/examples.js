@@ -1,11 +1,17 @@
 const utils = require('../index');
 
-const queryString = utils.http.url.buildQueryString({
+const newsfeedIsSelected = true;
+const queryString = utils.HTTP.URL.buildQueryString({
   encode: true, 
-  search: 'q',
+  search: 'search',
   data: [
-    { key: 'results', value: 'google analythics' }
+    { key: 'newsfeed', value: 'venezuela', validation: newsfeedIsSelected },
+    { key: 'about', value: 'Nicolas Maldito Maduro' }
   ]
+}).set({
+  key: 'government',
+  value: 'australia',
+  validate: true
 });
 
 console.log(queryString);
