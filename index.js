@@ -19,10 +19,11 @@ const pagination = () => {
     arrayOf(numberOfPages) { return page.paginationArray(numberOfPages); },
     calculate(totalOfItems, itemsPerPage, getNumberOfPages = false) {
       let calc = Math.ceil(totalOfItems / itemsPerPage);
-      if(!getNumberOfPages) {
-        return calc;
-      }
+      if(!getNumberOfPages)  return calc;
       return this.arrayOf(calc);
+    },
+    offsetOf(currentPage, numOfPages, offsetLeft, offsetRight) {
+      return page.paginationOffset(currentPage, numOfPages, offsetLeft, offsetRight);
     }
   });
 };

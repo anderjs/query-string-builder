@@ -13,5 +13,3 @@ const queryString = utils.HTTP.URL.buildQueryString({
   value: 'australia',
   validate: true
 });
-
-console.log(queryString);
