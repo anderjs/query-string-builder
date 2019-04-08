@@ -1,5 +1,5 @@
 const http = require('./lib/http');
-
+const page = require('./lib/pagination');
 /**
  * @function HTTP provides a useful resources for HTTP resources.
  * @returns {object} =>
@@ -8,10 +8,26 @@ const http = require('./lib/http');
  */
 const HTTP = () => {
   return Object.freeze({
-    url: {
+    URL: {
       buildQueryString(properties) { return http.createUrlParameters(properties) },
     }
   });
 };
 
-module.export = HTTP;
+const pagination = () => {
+  return Object.freeze({
+    arrayOf(numberOfPages) { return page.paginationArray(numberOfPages); },
+    calculate(totalOfItems, itemsPerPage, getNumberOfPages = false) {
+      let calc = Math.ceil(totalOfItems / itemsPerPage);
+      if(!getNumberOfPages) {
+        return calc;
+      }
+      return this.arrayOf(calc);
+    }
+  });
+};
+
+module.exports = {
+  HTTP: HTTP(),
+  pagination: pagination()
+};
