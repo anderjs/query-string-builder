@@ -1,17 +1,17 @@
 const http = require('./lib/http');
 
+/**
+ * @function HTTP provides a useful resources for HTTP resources.
+ * @returns {object} =>
+ * @type {object} url
+ * @property {function} buildQueryString
+ */
 const HTTP = () => {
   return Object.freeze({
     url: {
-      buildQueryString(model) { return http.createUrlParameters(model) },
+      buildQueryString(properties) { return http.createUrlParameters(properties) },
     }
   });
 };
 
-var url = HTTP().url.buildQueryString({
-  encode: true,
-  search: 'search',
-  data: [
-    { key: 'q', value: 'btc to usd' }
-  ]
-});
+module.export = HTTP;
