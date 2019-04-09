@@ -5,11 +5,7 @@ const queryString = utils.HTTP.URL.buildQueryString({
   encode: true, 
   search: 'search',
   data: [
-    { key: 'newsfeed', value: 'venezuela', validation: newsfeedIsSelected },
-    { key: 'about', value: 'Nicolas Maldito Maduro' }
+    { key: 'newsfeed', value: 'venezuela' },
+    { key: 'about', value: 'politics' }
   ]
-}).set({
-  key: 'government',
-  value: 'australia',
-  validate: true
 });

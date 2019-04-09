@@ -1,34 +1,19 @@
 const http = require('./lib/http');
-const page = require('./lib/pagination');
-/**
- * @function HTTP provides a useful resources for HTTP resources.
- * @returns {object} =>
- * @type {object} url
- * @property {function} buildQueryString
- */
-const HTTP = () => {
-  return Object.freeze({
-    URL: {
-      buildQueryString(properties) { return http.createUrlParameters(properties) },
-    }
-  });
-};
 
-const pagination = () => {
-  return Object.freeze({
-    arrayOf(numberOfPages) { return page.paginationArray(numberOfPages); },
-    calculate(totalOfItems, itemsPerPage, getNumberOfPages = false) {
-      let calc = Math.ceil(totalOfItems / itemsPerPage);
-      if(!getNumberOfPages)  return calc;
-      return this.arrayOf(calc);
-    },
-    offsetOf(currentPage, numOfPages, offsetLeft, offsetRight) {
-      return page.paginationOffset(currentPage, numOfPages, offsetLeft, offsetRight);
-    }
-  });
-};
+const queryString = Object.freeze({
+  build(properties) {
+    return http.createUrlParameters(properties) 
+  }
+});
 
-module.exports = {
-  HTTP: HTTP(),
-  pagination: pagination()
-};
+let s = queryString.build({
+  search: 'search',
+  queries: [
+    { key: 'products', value: 'samsung'}
+  ],
+  encode: false
+});
+
+console.log(s);
+
+module.export = queryString;

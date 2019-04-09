@@ -13,7 +13,7 @@ const createUrlParameters = (model: Model): object => {
     }
   });
   const libFunctions: object = {
-    url: joinUrlParameters,
+    url: joinUrlParameters(searchStr, urlParameters),
     encodeUrl: encode ? encodeURI(joinUrlParameters(searchStr, urlParameters)) : null,
     collection: urlParameters,
   };
