@@ -1,4 +1,4 @@
-const createQueryParameters = require('../lib/queries');
+const createQueryParameters = require('../lib/query-string');
 
 const queryString = Object.freeze({
   build(properties) {
