@@ -1,11 +1,11 @@
-const utils = require('../index');
+const createQueryParameters = require('../lib/queries');
 
-const newsfeedIsSelected = true;
-const queryString = utils.HTTP.URL.buildQueryString({
-  encode: true, 
-  search: 'search',
-  data: [
-    { key: 'newsfeed', value: 'venezuela' },
-    { key: 'about', value: 'politics' }
-  ]
+const queryString = Object.freeze({
+  build(properties) {
+    return createQueryParameters({...properties});
+  }
+});
+
+queryString.build({}).forEach((value, index, queryString) => {
+
 });
