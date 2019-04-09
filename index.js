@@ -6,5 +6,3 @@ const urlQueryString = queryString.build({
   ],
   encode: true
 });
-
-console.log(urlQueryString.get('sdfasd'));
