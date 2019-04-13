@@ -1,11 +1,11 @@
-const createQueryParameters = require('../lib/query-string');
+const queryString = require('../lib/query-string');
 
-const queryString = Object.freeze({
-  build(properties) {
-    return createQueryParameters({...properties});
-  }
+const queryStringObject = queryString.build({
+  search: 'q',
+  queries: [
+    { key: 'newsfeed', value: 'USA', validation: 1 === 1 },
+    { key: 'about', value: 'javascript' }
+  ],
+  encode: true
 });
-
-queryString.build({}).forEach((value, index, queryString) => {
-
-});
+console.log(queryStringObject.get('newsfeed'));

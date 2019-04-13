@@ -1,0 +1,24 @@
+{
+  "name": "query-string-builder",
+  "version": "1.0.0",
+  "description": "A useful quick library for using SearchUrlParameters in the browser.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anderjs/web-utils-lib.git"
+  },
+  "keywords": ["urlsearchparameters", "querystring", "url", "library"],
+  "author": "anderjs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anderjs/web-utils-lib/issues"
+  },
+  "homepage": "https://github.com/anderjs/web-utils-lib#readme"
+}
